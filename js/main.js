@@ -57,7 +57,7 @@
             textNode;
         for (var j = 0; j < months; j++) {
             node = document.createElement("span");
-            textNode = document.createTextNode((m(momentStartDate.month() + j, 'MM').format('MMMM')) + ' ' + (momentStartDate.year() + i));
+            textNode = document.createTextNode((m(momentStartDate.month() + j + 1, 'MM').format('MMMM')) + ' ' + (momentStartDate.year() + i));
             node.appendChild(textNode);
             document.getElementById("calendarRender").appendChild(node);
             document.getElementById("calendarRender").appendChild(document.createElement("br"));
