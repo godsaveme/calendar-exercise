@@ -10,6 +10,7 @@
         years,
         months,
         daysOfTheWeek = ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+        holidays = ['2018-05-01', '2018-06-15'],
         calendarFormSubmit = function (event) {
             event.preventDefault();
             calendarDataCalculation();
@@ -33,7 +34,7 @@
 
     function yearRender(years) {
         for (var i = 0; i < years; i++) {
-            
+
             var parentNode = document.createElement("div"),
                 node,
                 textNode;
@@ -66,9 +67,11 @@
 
     function weekRender(j) {
         var node,
-            textNode;
+            textNode,
+            foundHoliday,
+            parentNode;
         while (momentStartDateIncremental.month() === momentStartDate.month() + j && momentStartDateIncremental < momentEndDate) {
-            var parentNode = document.createElement("div");
+            parentNode = document.createElement("div");
             parentNode.classList.add("flex-container");
             document.getElementById("calendarRender").appendChild(parentNode);
             for (var k = 0; k < 7; k++) {
@@ -79,6 +82,12 @@
                             node.style.backgroundColor = "yellow";
                         } else {
                             node.style.backgroundColor = "lightgreen";
+                        }
+                        foundHoliday = holidays.find(function (element) {
+                            return m(element).isSame(momentStartDateIncremental);
+                        });
+                        if (foundHoliday) {
+                            node.style.backgroundColor = "orange";
                         }
                         textNode = document.createTextNode(momentStartDateIncremental.date());
                         node.appendChild(textNode);
