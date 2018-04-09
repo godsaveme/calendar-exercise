@@ -29,7 +29,12 @@
     }
 
     function calendarRender() {
+        calendarRenderClean();
         yearRender(years);
+    }
+
+    function calendarRenderClean(){
+        document.getElementById("calendarRender").innerHTML = '';
     }
 
     function yearRender(years) {
