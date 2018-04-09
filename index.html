@@ -4,7 +4,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Calendar Exercise</title> 
+    <title>Calendar Exercise</title>
 </head>
 
 <body>
@@ -17,9 +17,13 @@
             <label>Number of Days:</label>
             </br>
             <input type="number" id="daysNumber" min="1" value="1"> </br>
+            <label>Country Code:</label>
+            </br>
+            <input type="text" id="countryCode"></br>
             <input type="submit">
         </fieldset>
     </form>
+    <div id="calendarRender"></div>
     <script src="js/moment.min.js"></script>
     <script src="js/main.js"></script>
 </body>
